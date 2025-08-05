@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <div class="dashboard-header">
+        <h1>VoluntaryStrikeOff Admin Dashboard</h1>
+        <button onclick="logout()">Logout</button>
+      </div>
+
+      <div class="tabs">
+        <button id="tab-unprocessed" onclick="setTab('unprocessed')">
+          Unprocessed
+        </button>
+        <button id="tab-processed" onclick="setTab('processed')">
+          Processed
+        </button>
+      </div>
+
+      <div class="dashboard-body">
+        <div class="record-list">
+          <table>
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Processed</th>
+                <th>Created At</th>
+              </tr>
+            </thead>
+            <tbody id="recordTableBody">
+              <!-- rows inserted by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="record-details" id="recordDetails">
+          <p>Select a record to view details.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="confirmModal" class="modal hidden">
+      <div class="modal-content">
+        <p>Are you sure you want to delete this record?</p>
+        <div class="modal-actions">
+          <button id="confirmYes">Yes, Delete</button>
+          <button id="confirmNo">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

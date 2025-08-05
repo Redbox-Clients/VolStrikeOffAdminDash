@@ -1,0 +1,49 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDEs/editors
+.vscode/
+.idea/
+*.sw?
+
+# Optional build/cache
+dist/
+build/
+.cache/
+.next/
+out/
+
+# Coverage/test output
+coverage/
+*.lcov
+
+# Local environment overrides
+*.local.*
+.env.local
+.env.*.local
+
+# Uploads / runtime data (optional)
+uploads/
+tmp/
+temp/
+
+# Database dumps (if used)
+*.sql
+*.sqlite
+
+# Mac trash
+.Trashes

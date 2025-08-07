@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
+const path = require("path");
 const { MongoClient, ObjectId } = require("mongodb");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
@@ -31,7 +32,7 @@ let db, collection;
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Connect to MongoDB
 const client = new MongoClient(MONGO_URI);
@@ -48,7 +49,7 @@ client
 
     // ✅ Start server only after DB connection is ready
     app.listen(PORT, () => {
-      console.log(`Server running at http://localhost:${PORT}`);
+      console.log(`Server running at ${PORT}`);
     });
   })
   .catch((err) => {
@@ -149,7 +150,6 @@ app.post("/api/records/:id/action", authenticateToken, async (req, res) => {
   }
 });
 
-// Server start
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "login.html"));
 });

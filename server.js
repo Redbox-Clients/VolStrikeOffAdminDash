@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
 const jwt = require("jsonwebtoken");
@@ -5,15 +7,20 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
-// For webhook calls
+
+const JWT_SECRET = process.env.JWT_SECRET;
+const MONGO_URI = process.env.MONGO_URI;
+const PORT = process.env.PORT || 3000;
+
+// Check for required env vars
+if (!JWT_SECRET || !MONGO_URI) {
+  console.error("❌ Missing environment variables.");
+  process.exit(1);
+}
 
 const app = express();
-const PORT = 3000;
-const JWT_SECRET = "your-secret-key"; // Replace with environment variable in production
 
 // Replace with your MongoDB Atlas connection string
-const MONGO_URI =
-  "mongodb+srv://strike_off_admin:9nZswGiDOBZvej55@cluster0.sx8yktf.mongodb.net/?retryWrites=true&w=majority";
 const DB_NAME = "strike_offs";
 const COLLECTION_NAME = "requests";
 const COLLECTION_NAME_2 = "users";

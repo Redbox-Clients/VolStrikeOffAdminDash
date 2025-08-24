@@ -99,7 +99,11 @@ app.post("/api/login", async (req, res) => {
 app.get("/api/records", authenticateToken, async (req, res) => {
   try {
     const processed = req.query.processed === "true";
-    const records = await collection.find({ processed }).toArray();
+    // Sort by createdAt descending (newest first)
+    const records = await collection
+      .find({ processed })
+      .sort({ createdAt: -1 })
+      .toArray();
     res.json(records);
   } catch (err) {
     console.error("Error fetching records:", err);

@@ -252,7 +252,7 @@ body {
 
 /* Utility */
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 /* Login Page */
@@ -319,4 +319,21 @@ body {
     color: #d9363e;
     font-size: 14px;
     margin-top: 10px;
+}
+
+/* Spinner */
+.spinner {
+  display: block;
+  margin: 30px auto;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #1890ff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

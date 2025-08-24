@@ -37,6 +37,10 @@ async function handleApiResponse(res) {
 }
 
 async function loadRecords() {
+  // Show spinner
+  document.getElementById("recordListSpinner").classList.remove("hidden");
+  document.getElementById("recordTableBody").classList.add("hidden");
+
   const res = await fetch(
     `/api/records?processed=${currentTab === "processed"}`,
     {
@@ -45,11 +49,20 @@ async function loadRecords() {
   );
 
   const data = await handleApiResponse(res);
-  if (!data) return;
+  if (!data) {
+    // Hide spinner if error
+    document.getElementById("recordListSpinner").classList.add("hidden");
+    document.getElementById("recordTableBody").classList.remove("hidden");
+    return;
+  }
 
   currentRecords = data;
   renderTable();
   clearDetails();
+
+  // Hide spinner, show table
+  document.getElementById("recordListSpinner").classList.add("hidden");
+  document.getElementById("recordTableBody").classList.remove("hidden");
 }
 
 function renderTable() {

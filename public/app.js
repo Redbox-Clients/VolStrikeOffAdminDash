@@ -273,8 +273,8 @@ function generateRecordHtml(record) {
         <h3>Company Law Provisions</h3>
         <p><strong>No Longer Trading:</strong> ${r.companyNoLongerTrading}</p>
         <p><strong>Returns Up To Date:</strong> ${r.returnsUpToDate}</p>
-        <p><strong>Assets ≤ €150:</strong> ${!r.assetsExceed150}</p>
-        <p><strong>Liabilities ≤ €150:</strong> ${!r.liabilitiesExceed150}</p>
+        <p><strong>Assets ≤ €150:</strong> ${r.assetsExceed150}</p>
+        <p><strong>Liabilities ≤ €150:</strong> ${r.liabilitiesExceed150}</p>
         <p><strong>Ongoing Litigation:</strong> ${r.ongoingLitigation}</p>
         <hr />
         <h3>Details of Director or Secretary</h3>

@@ -208,8 +208,8 @@ function generateRecordHtml(record) {
         <p><strong>Phone Number:</strong> ${r.phone || ""}</p>
         <p><strong>Email Address:</strong> ${r.emailAddress || ""}</p>
         <p><strong>Has Authority:</strong> ${r.authority}</p>
-        <p><strong>Has Authority:</strong> ${r.invoiceToOther}</p>
-        <p><strong>Address:</strong> ${r.invoiceAddress || ""}</p>
+        <p><strong>Other Invoice Address:</strong> ${r.invoiceToOther}</p>
+        <p><strong>Invoice Address:</strong> ${r.invoiceAddress || ""}</p>
         <hr />
         <h3>Details of Company to be Struck Off</h3>
         <p><strong>Company Name:</strong> ${r.companyName || ""}</p>
